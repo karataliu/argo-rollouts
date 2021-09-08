@@ -59,7 +59,7 @@ func (p *JobProvider) Type() string {
 // pod spec labels.
 func newJobName(run *v1alpha1.AnalysisRun, metric v1alpha1.Metric) string {
 	jobID := getJobIDSuffix(run, metric.Name)
-	return fmt.Sprintf("%s.%s.%d", run.UID, metric.Name, jobID)
+	return fmt.Sprintf("%s.%d.%s", metric.Name, jobID, run.UID)
 }
 
 // getJobIDSuffix returns a numeric id which will be used as part of the job name. This is equal
